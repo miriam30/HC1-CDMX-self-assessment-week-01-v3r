@@ -7,7 +7,6 @@ MDN
 */
 
 /**
-  *
   * Implement a `map` method on this Tree class, using pseudoclassical instantiation.
   *
   * Map accepts a mapping function as its only argument. It traverses the tree,
@@ -35,3 +34,28 @@ MDN
   *  newTree.children[1].children[1].value // 14
   *  root1.value // still 1
   */
+var Tree = function(){
+  //for pseudoclassical we have to create a var that attaches our mapping funcion
+  var root1 = Object.create(mapping)
+  root1.child = []
+
+  root1.value = 0
+ //return that original var
+  return root1
+
+}
+//create add tree function
+root1.addChild = function(){
+  var children = this.value
+  //we push each child in our child array
+  this.child.push(children)
+}
+//create mapping funcion that returns the value of each child * by 2
+root1.mapping = function(){
+  // we iterate through our branch
+  for(var i= 0; i < this.newTree.length; i++){
+    // return
+    return this.newTree[i] + mapping(this.newTree[i],2--)
+  }
+
+}
